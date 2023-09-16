@@ -5,14 +5,10 @@ const httpsAgent = new https.Agent({
 
 export const BaseService = async ({
   method = null,
-  id = null,
   body = null,
   controllerName = null,
 }) => {
-  const apiUrl = `${process.env.API_URL}/${controllerName}${
-    id ? `/${id}` : ""
-  } `;
-  console.log(apiUrl);
+  const apiUrl = `${process.env.API_URL}/${controllerName}`;
 
   try {
     const response = await fetch(apiUrl, {
@@ -26,7 +22,6 @@ export const BaseService = async ({
     const result = await response.json();
     return result;
   } catch (err) {
-    console.log(err.message);
     return err.message;
   }
 };

@@ -31,3 +31,7 @@ img {
   height: auto;
   display: block;
 }
+
+main {
+  padding: 20px 0px;
+}

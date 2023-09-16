@@ -1,0 +1,28 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.gridContainer a {
+  font-weight: bold;
+}
+.gridContainer a::before {
+  content: "Tel:";
+  padding-right: 10px;
+}
+.gridContainer a::after {
+  content: "(Aramak İçin Tıklayınız)";
+  padding-left: 10px;
+  font-size: 13px;
+  text-decoration: underline;
+}
+@media all and (max-width: 769px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media all and (max-width: 576px) {
+  .gridContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

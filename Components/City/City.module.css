@@ -1,0 +1,13 @@
+.city {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.4s ease-in-out;
+}
+.city:hover {
+  background: var(--red-color);
+  color: #fff;
+}

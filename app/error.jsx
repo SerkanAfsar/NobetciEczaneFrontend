@@ -1,12 +1,14 @@
-"use client"; // Error components must be Client Components
-
-import { useEffect } from "react";
-
+"use client";
 export default function Error({ error, reset }) {
-  useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error);
-  }, [error]);
-
-  return <div> Error Is ,{error.message}</div>;
+  return (
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-6">
+          <div class="alert alert-danger" role="alert">
+            {error.message}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

@@ -1,10 +1,11 @@
+import styles from "./SinglePharmacy.module.css";
 export default function SinglePharmacy({ pharmacy }) {
   return (
     <div className="card d-flex flex-column h-100">
-      <div className="card-header">{pharmacy?.ilceAdi}</div>
+      <div className={`card-header `}>{pharmacy?.ilceAdi}</div>
       <div className="card-body">
-        <h5 className="card-title">{pharmacy?.eczaneAdi}</h5>
-        <p className="card-text">{pharmacy?.adres}</p>
+        <h5 className={`card-title ${styles.title}`}>{pharmacy?.eczaneAdi}</h5>
+        <p className={`card-text ${styles.address}`}>{pharmacy?.adres}</p>
         {pharmacy?.telefon && (
           <>
             <a
@@ -16,11 +17,12 @@ export default function SinglePharmacy({ pharmacy }) {
           </>
         )}
       </div>
-
       {pharmacy.hasMap && (
-        <div className="p-3">
-          <button className="btn btn-primary w-100 d-block  align-self-end">
-            Harita
+        <div className="pb-3 px-3">
+          <button
+            className={`btn btn-primary w-100 d-block  align-self-end ${styles.btn}`}
+          >
+            Harita İçin Tıklayınız
           </button>
         </div>
       )}

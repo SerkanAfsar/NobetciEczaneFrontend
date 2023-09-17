@@ -5,6 +5,7 @@ export default async function PharmacyCity({ params }) {
   const result = await GetPharmacyListService({
     body: { slugUrl: params.slug },
   });
+
   if (!result.isSuccess) {
     switch (result.statusCode) {
       case 404: {
@@ -23,3 +24,4 @@ export default async function PharmacyCity({ params }) {
 }
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;

@@ -1,5 +1,5 @@
 :root {
-  --red-color: red;
+  --red-color: #cc0000;
 
   --header-height: 80px;
 }
@@ -23,15 +23,11 @@ li {
   list-style: none;
 }
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: inherit;
 }
 img {
   max-width: 100%;
   height: auto;
   display: block;
-}
-
-main {
-  padding: 20px 0px;
 }

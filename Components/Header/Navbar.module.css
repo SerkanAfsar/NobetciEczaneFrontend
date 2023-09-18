@@ -7,20 +7,117 @@
   width: 100%;
   align-items: center;
 }
-.navbar > ul {
+.navbar .menu {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .menu button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background: none;
+  position: relative;
+  display: none;
+}
 
+.navbar .menu button span,
+.navbar .menu button span::before,
+.navbar .menu button span::after {
+  width: 100%;
+  display: block;
+  height: 2px;
+  border-radius: 3px;
+  background: #fff;
+}
+.navbar .menu button span::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+.navbar .menu button span::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+.navbar ul {
+  display: flex;
   margin: 0px;
 }
-.navbar > ul > li > a {
+.navbar ul li a {
   padding: 20px 10px;
   transition: all 0.4s ease-in-out;
   display: block;
 }
-.navbar > ul > li:hover > a {
+.navbar ul li:hover a {
   background: #000;
 }
 .navbarBrand {
   font-size: 30px;
   font-weight: bold;
+}
+@media all and (max-width: 769px) {
+  .navbar {
+    padding: 10px 0px;
+  }
+  .navbar .menu ul {
+    display: none;
+  }
+  .navbar .menu button {
+    display: block;
+    position: absolute;
+    right: 20px;
+  }
+  .navbar.active .menu button {
+    position: absolute;
+    right: 20px;
+    display: block;
+  }
+
+  .navbarBrand {
+    font-size: 20px;
+  }
+  .navbar.active {
+    position: fixed;
+    inset: 0px;
+    height: 100%;
+    width: 100%;
+    background: var(--red-color);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    z-index: 10;
+    padding-left: 10px;
+  }
+  .navbar.active ul {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    gap: 0px;
+  }
+  .navbar.active ul a {
+    padding: 10px 0px;
+  }
+  .navbar.active .menu button {
+    top: 25px;
+  }
+  .navbar.active .menu button span {
+    background: none;
+  }
+  .navbar.active .menu button span::before {
+    position: absolute;
+    top: 0px;
+    display: block;
+    transform: rotate(45deg);
+  }
+  .navbar.active .menu button span::after {
+    position: absolute;
+    top: 0px;
+    display: block;
+    transform: rotate(135deg);
+  }
 }

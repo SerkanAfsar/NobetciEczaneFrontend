@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export default function City({ city, hasSearch = false }) {
   return (
-    <div className="col-12 col-md-4">
+    <div className="col-12 col-md-6 col-lg-4">
       <Link
-        className={`shadow p-3  mb-5 d-flex justify-content-start align-items-center gap-4 rounded ${styles.city}`}
+        className={`shadow p-3  mb-3 d-flex justify-content-start align-items-center gap-4 rounded ${styles.city}`}
         href={`/${city.seoUrl}`}
         title={`${city.ilAdi} Nöbetçi Eczaneleri`}
       >

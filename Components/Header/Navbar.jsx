@@ -2,18 +2,22 @@
 import Link from "next/link";
 import styles from "./Navbar.module.css";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const router = useRouter();
-  const [active, setActive] = useState(false);
+  const pathname = usePathname();
+  const [isActive, setIsActive] = useState(false);
+
   useEffect(() => {
-    setActive(false);
-  }, [router]);
+    if (isActive == true) {
+      setIsActive(false);
+    }
+  }, [pathname]);
+
   return (
     <nav
       className={
-        active ? `${styles.navbar} ${styles.active}` : `${styles.navbar}`
+        isActive ? `${styles.navbar} ${styles.active}` : `${styles.navbar}`
       }
     >
       <Link href={"/"} className={styles.navbarBrand} title="Nöbetçi Eczaneler">
@@ -46,7 +50,7 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-        <button type="button" onClick={(e) => setActive((item) => !item)}>
+        <button type="button" onClick={(e) => setIsActive((item) => !item)}>
           <span></span>
         </button>
       </div>

@@ -6,6 +6,7 @@
   justify-content: space-between;
   width: 100%;
   align-items: center;
+  position: relative;
 }
 .navbar .menu {
   display: flex;
@@ -69,7 +70,7 @@
   .navbar .menu button {
     display: block;
     position: absolute;
-    right: 20px;
+    right: 0px;
   }
   .navbar.active .menu button {
     position: absolute;

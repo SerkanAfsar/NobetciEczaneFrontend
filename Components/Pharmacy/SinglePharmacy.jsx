@@ -1,5 +1,5 @@
 import styles from "./SinglePharmacy.module.css";
-export default function SinglePharmacy({ pharmacy }) {
+export default function SinglePharmacy({ pharmacy, handleMapClick = null }) {
   return (
     <div className="card d-flex flex-column h-100">
       <div className={`card-header `}>{pharmacy?.ilceAdi}</div>
@@ -20,6 +20,7 @@ export default function SinglePharmacy({ pharmacy }) {
       {pharmacy.hasMap && (
         <div className="pb-3 px-3">
           <button
+            onClick={(e) => handleMapClick({ item: pharmacy })}
             className={`btn btn-primary w-100 d-block  align-self-end ${styles.btn}`}
           >
             Harita İçin Tıklayınız

@@ -2,19 +2,35 @@
 import SinglePharmacy from "@/Components/Pharmacy/SinglePharmacy";
 import styles from "./CityPharmacyContainer.module.css";
 import DropdownList from "@/Components/UI/DropdownList";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { Modal } from "bootstrap/dist/js/bootstrap";
+import ModalHarita from "@/Components/ModalHarita/ModalHarita";
+
 export default function CityPharmacyContainer({ result }) {
   const [selectedDistrict, setSelectedDistrict] = useState(null);
-  const pharmaciList = new Set();
+  const [selectedPharmacy, setSelectedPharmacy] = useState(null);
+  const modalRef = useRef();
 
+  useEffect(() => {
+    import("bootstrap/dist/js/bootstrap");
+  }, []);
+
+  const pharmaciList = new Set();
   result.pharmacies.forEach((item) => {
     pharmaciList.add(item.ilceAdi);
   });
+
   const data = new Array();
   data.push({ value: null, label: "Tüm İlçeler" });
   pharmaciList.forEach((elem, index) => {
     data.push({ value: elem, label: elem });
   });
+
+  const handleMapClick = useCallback(({ item }) => {
+    setSelectedPharmacy(item);
+    const myModal = new Modal(modalRef.current);
+    myModal.show();
+  }, []);
 
   return (
     <div className="container">
@@ -40,15 +56,26 @@ export default function CityPharmacyContainer({ result }) {
               ?.filter((a) => a.ilceAdi == selectedDistrict)
               .map((pharmacy, index) => (
                 <div key={index}>
-                  <SinglePharmacy pharmacy={pharmacy} />
+                  <SinglePharmacy
+                    handleMapClick={handleMapClick}
+                    pharmacy={pharmacy}
+                  />
                 </div>
               ))
           : result?.pharmacies?.map((pharmacy, index) => (
               <div key={index}>
-                <SinglePharmacy pharmacy={pharmacy} />
+                <SinglePharmacy
+                  pharmacy={pharmacy}
+                  handleMapClick={handleMapClick}
+                />
               </div>
             ))}
       </div>
+      <ModalHarita
+        ref={modalRef}
+        pharmacy={selectedPharmacy}
+        id="modalHarita"
+      />
     </div>
   );
 }

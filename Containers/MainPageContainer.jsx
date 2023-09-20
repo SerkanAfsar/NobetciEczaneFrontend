@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import City from "@/Components/City/City";
 import InputText from "@/Components/UI/InputText";
+import Notify from "@/Components/Notify/Notify";
 
 export default function MainPageContainer({ cityList }) {
   const [searchText, setSearchText] = useState(null);

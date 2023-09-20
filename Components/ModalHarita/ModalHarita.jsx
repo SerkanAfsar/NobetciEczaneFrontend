@@ -1,4 +1,6 @@
-import { forwardRef, useEffect } from "react";
+import { forwardRef } from "react";
+import { Wrapper } from "@googlemaps/react-wrapper";
+import { GoogleMaps } from "./GoogleMaps";
 
 const ModalHarita = forwardRef(function MapModal(props, ref) {
   return (
@@ -25,7 +27,13 @@ const ModalHarita = forwardRef(function MapModal(props, ref) {
             ></button>
           </div>
           <div className="modal-body">
-            {props.lat} - {props.long}
+            <Wrapper apiKey={process.env.GOOGLE_API_KEY}>
+              <GoogleMaps
+                lat={props?.pharmacy?.latitude}
+                lng={props?.pharmacy?.longitude}
+                name={props?.pharmacy?.eczaneAdi}
+              />
+            </Wrapper>
           </div>
           <div className="modal-footer">
             <button

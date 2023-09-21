@@ -1,0 +1,8 @@
+.inner h1,
+.inner h2,
+.inner h3,
+.inner h4,
+.inner h5,
+.inner h6 {
+  display: none;
+}

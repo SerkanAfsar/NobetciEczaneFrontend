@@ -35,7 +35,13 @@ export default function CityPharmacyContainer({ result }) {
   return (
     <div className="container">
       <div className="row mb-3">
-        <div className="col-12">
+        <div className={`col-12 ${styles.inner}`}>
+          <h1>{result?.city?.ilAdi} Nöbetçi Eczaneleri</h1>
+          <h2>{result?.city?.ilAdi} Nöbetçi Eczaneler Listesi</h2>
+          <h3> {result?.city?.ilAdi}Nöbetçi Eczaneler</h3>
+          <h4>{result?.city?.ilAdi} Günlük Nöbetçi Eczaneleri</h4>
+          <h5>{result?.city?.ilAdi} Günlük Nöbetçi Eczaneler</h5>
+          <h6>{result?.city?.ilAdi}</h6>
           <DropdownList
             title={"İlçe Seçiniz"}
             name={"drp_ilceler"}

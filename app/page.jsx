@@ -48,4 +48,4 @@ export default async function Home() {
   // });
   return <MainPageContainer cityList={result.entities} />;
 }
-export const dynamic = "force-dynamic";
+export const revalidate = 10;

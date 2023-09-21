@@ -6,11 +6,7 @@ export default async function Home() {
   if (!result.isSuccess) {
     throw new Error(result.errorList ? result.errorList.join("-") : result);
   }
-  // await new Promise((resolve, reject) => {
-  //   setTimeout(() => {
-  //     resolve();
-  //   }, 3000);
-  // });
+
   return <MainPageContainer cityList={result.entities} />;
 }
 export const revalidate = 0;

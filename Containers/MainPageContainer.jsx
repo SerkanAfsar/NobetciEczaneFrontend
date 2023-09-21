@@ -8,7 +8,7 @@ export default function MainPageContainer({ cityList }) {
   const [searchText, setSearchText] = useState(null);
   return (
     <div className="container">
-      <div className="row my-3">
+      <div className="row mb-3">
         <div className="col-12">
           <InputText
             title={"Aramak İstediğiniz Şehiri Yazınız"}

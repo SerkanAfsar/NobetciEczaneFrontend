@@ -15,7 +15,7 @@ export default async function PharmacyCity({ params }) {
         throw new Error(result.errorList ? result.errorList.join("-") : result);
       }
       default: {
-        break;
+        throw new Error(result);
       }
     }
   }

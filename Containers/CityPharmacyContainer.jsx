@@ -5,8 +5,10 @@ import DropdownList from "@/Components/UI/DropdownList";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Modal } from "bootstrap/dist/js/bootstrap";
 import ModalHarita from "@/Components/ModalHarita/ModalHarita";
+import { useRouter } from "next/navigation";
 
 export default function CityPharmacyContainer({ result }) {
+  const router = useRouter();
   const [selectedDistrict, setSelectedDistrict] = useState(null);
   const [selectedPharmacy, setSelectedPharmacy] = useState(null);
   const modalRef = useRef();
@@ -15,8 +17,12 @@ export default function CityPharmacyContainer({ result }) {
     import("bootstrap/dist/js/bootstrap");
   }, []);
 
+  // useEffect(() => {
+  //   router.refresh();
+  // }, [router]);
+
   const pharmaciList = new Set();
-  result.pharmacies.forEach((item) => {
+  result?.pharmacies?.forEach((item) => {
     pharmaciList.add(item.ilceAdi);
   });
 
@@ -34,7 +40,7 @@ export default function CityPharmacyContainer({ result }) {
 
   return (
     <div className="container">
-      <div className="row my-3">
+      <div className="row mb-3">
         <div className="col-12">
           <DropdownList
             title={"İlçe Seçiniz"}

@@ -9,6 +9,7 @@
   margin: 0px;
   padding: 0px;
   list-style: none;
+  box-sizing: border-box;
 }
 
 html,
@@ -24,10 +25,15 @@ li {
 }
 a {
   text-decoration: none !important;
-  color: inherit !important;
+  color: inherit;
 }
 img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+main {
+  min-height: calc(100vh - 107px);
+  display: block;
+  padding: 20px 0px;
 }

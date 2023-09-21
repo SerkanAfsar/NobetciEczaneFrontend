@@ -80,6 +80,7 @@
 
   .navbarBrand {
     font-size: 20px;
+    padding-left: 10px;
   }
   .navbar.active {
     position: fixed;
@@ -92,7 +93,6 @@
     justify-content: flex-start;
     gap: 10px;
     z-index: 10;
-    padding-left: 10px;
   }
   .navbar.active ul {
     display: block;
@@ -100,8 +100,16 @@
     padding: 0px;
     gap: 0px;
   }
+  .navbar.active ul li {
+    display: block;
+    width: 100%;
+  }
   .navbar.active ul a {
-    padding: 10px 0px;
+    padding: 10px;
+  }
+  .navbar.active .menu {
+    display: block;
+    width: 100%;
   }
   .navbar.active .menu button {
     top: 25px;

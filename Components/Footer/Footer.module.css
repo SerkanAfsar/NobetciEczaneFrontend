@@ -4,10 +4,11 @@
   width: 100%;
   background: #000;
   border-top: 2px solid var(--red-color);
-  height: 40px;
+
   justify-content: flex-end;
   align-items: center;
   bottom: 0px;
+  color: #fff;
 }
 .footer a {
   color: #fff;

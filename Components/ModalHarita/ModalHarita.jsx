@@ -16,7 +16,8 @@ const ModalHarita = forwardRef(function MapModal(props, ref) {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id={props.id}>
-              {props?.pharmacy?.ilceAdi} - {props?.pharmacy?.eczaneAdi} -
+              {props?.pharmacy?.ilceAdi}&nbsp;-&nbsp;
+              {props?.pharmacy?.eczaneAdi}&nbsp;-&nbsp;
               {props?.pharmacy?.telefon}
             </h5>
             <button

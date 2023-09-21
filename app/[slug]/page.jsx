@@ -1,6 +1,38 @@
 import CityPharmacyContainer from "@/Containers/CityPharmacyContainer";
 import { GetPharmacyListService } from "@/Services/Pharmacy.Service";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  // read route params
+  const slug = params.slug;
+  const result = await GetPharmacyListService({
+    body: { slugUrl: params.slug },
+  });
+
+  return {
+    title: `${result?.entity?.city?.ilAdi} Nöbetçi Eczaneleri`,
+    description: `${result?.entity?.city?.ilAdi} Nöbetçi Eczaneleri`,
+    charSet: "UTF-8",
+    openGraph: {
+      title: `${result?.entity?.city?.ilAdi} Nöbetçi Eczaneleri`,
+      description: `${result?.entity?.city?.ilAdi} Nöbetçi Eczaneleri`,
+      publisher: "Nöbetçi Eczaneler",
+      locale: "tr_TR",
+      site_name: "Nöbetçi Eczaneler",
+    },
+    twitter: {
+      card: "summary",
+      description: `${result?.entity?.city?.ilAdi} Nöbetçi Eczaneleri`,
+      title: `${result?.entity?.city?.ilAdi} Nöbetçi Eczaneleri`,
+      creator: "@NöbetçiEczaneler",
+    },
+    resourceType: "Web Page",
+    alternates: {
+      canonical: `${process.env.SITE_NAME}/${slug}`,
+    },
+  };
+}
+
 export default async function PharmacyCity({ params }) {
   const result = await GetPharmacyListService({
     body: { slugUrl: params.slug },

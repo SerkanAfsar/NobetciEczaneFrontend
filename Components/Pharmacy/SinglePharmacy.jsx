@@ -1,3 +1,4 @@
+"use client";
 import styles from "./SinglePharmacy.module.css";
 export default function SinglePharmacy({ pharmacy, handleMapClick = null }) {
   return (
@@ -20,7 +21,9 @@ export default function SinglePharmacy({ pharmacy, handleMapClick = null }) {
       {pharmacy.hasMap && (
         <div className="pb-3 px-3">
           <button
-            onClick={(e) => handleMapClick({ item: pharmacy })}
+            onClick={(e) =>
+              handleMapClick && handleMapClick({ item: pharmacy })
+            }
             className={`btn btn-primary w-100 d-block  align-self-end ${styles.btn}`}
           >
             Harita İçin Tıklayınız

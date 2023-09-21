@@ -2,24 +2,14 @@
 import SinglePharmacy from "@/Components/Pharmacy/SinglePharmacy";
 import styles from "./CityPharmacyContainer.module.css";
 import DropdownList from "@/Components/UI/DropdownList";
-import { useState, useEffect, useCallback, useRef } from "react";
-import { Modal } from "bootstrap/dist/js/bootstrap";
+import { useState, useCallback, useRef } from "react";
+
 import ModalHarita from "@/Components/ModalHarita/ModalHarita";
-import { useRouter } from "next/navigation";
 
 export default function CityPharmacyContainer({ result }) {
-  const router = useRouter();
   const [selectedDistrict, setSelectedDistrict] = useState(null);
   const [selectedPharmacy, setSelectedPharmacy] = useState(null);
   const modalRef = useRef();
-
-  useEffect(() => {
-    import("bootstrap/dist/js/bootstrap");
-  }, []);
-
-  // useEffect(() => {
-  //   router.refresh();
-  // }, [router]);
 
   const pharmaciList = new Set();
   result?.pharmacies?.forEach((item) => {
@@ -34,6 +24,10 @@ export default function CityPharmacyContainer({ result }) {
 
   const handleMapClick = useCallback(({ item }) => {
     setSelectedPharmacy(item);
+    const { Modal } =
+      typeof document !== undefined
+        ? require("bootstrap/dist/js/bootstrap")
+        : null;
     const myModal = new Modal(modalRef.current);
     myModal.show();
   }, []);

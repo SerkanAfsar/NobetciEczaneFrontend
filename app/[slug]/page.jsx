@@ -2,7 +2,7 @@ import CityPharmacyContainer from "@/Containers/CityPharmacyContainer";
 import { GetPharmacyListService } from "@/Services/Pharmacy.Service";
 import { notFound } from "next/navigation";
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata({ params }, parent) {
   // read route params
   const slug = params.slug;
   const result = await GetPharmacyListService({
@@ -13,6 +13,12 @@ export async function generateMetadata({ params, searchParams }, parent) {
     title: `${result?.entity?.city?.ilAdi} Nöbetçi Eczaneleri`,
     description: `${result?.entity?.city?.ilAdi} Nöbetçi Eczaneleri`,
     charSet: "UTF-8",
+    robots: "index,follow",
+    publisher: "Nöbetçi Eczaneler",
+    author: "Nöbetçi Eczaneler - info@nobetci-eczane.net",
+    distribution: "global",
+    themeColor: "#fff",
+    resourceType: "Web Page",
     openGraph: {
       title: `${result?.entity?.city?.ilAdi} Nöbetçi Eczaneleri`,
       description: `${result?.entity?.city?.ilAdi} Nöbetçi Eczaneleri`,
@@ -29,6 +35,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
     resourceType: "Web Page",
     alternates: {
       canonical: `${process.env.SITE_NAME}/${slug}`,
+      dnsPrefetch: "//fonts.googleapis.com/",
+      dnsPrefetch: "//www.google-analytics.com/",
+      dnsPrefetch: "//ajax.googleapis.com/",
     },
   };
 }

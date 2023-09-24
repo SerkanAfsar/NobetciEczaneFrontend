@@ -5,6 +5,8 @@ import DropdownList from "@/Components/UI/DropdownList";
 import { useState, useCallback, useRef } from "react";
 
 import ModalHarita from "@/Components/ModalHarita/ModalHarita";
+import Notify from "@/Components/Notify/Notify";
+import BreadCrumb from "@/Components/BreadCrumb/BreadCrumb";
 
 export default function CityPharmacyContainer({ result }) {
   const [selectedDistrict, setSelectedDistrict] = useState(null);
@@ -33,10 +35,25 @@ export default function CityPharmacyContainer({ result }) {
   }, []);
 
   return (
-    <div className="container">
+    <div className={`container ${styles.inner}`}>
       <div className="row mb-3">
-        <div className={`col-12 ${styles.inner}`}>
+        <div className="col-12">
           <h1>{result?.city?.ilAdi} Nöbetçi Eczaneleri</h1>
+        </div>
+      </div>
+      <div className="row mb-3">
+        <div className="col-12">
+          <BreadCrumb title={result?.city?.ilAdi} />
+        </div>
+      </div>
+
+      <div className="row mb-3">
+        <div className="col-12">
+          <Notify ilAdi={result?.city?.ilAdi} />
+        </div>
+      </div>
+      <div className="row mb-3">
+        <div className={`col-12`}>
           <h2>{result?.city?.ilAdi} Nöbetçi Eczaneler Listesi</h2>
           <h3> {result?.city?.ilAdi}Nöbetçi Eczaneler</h3>
           <h4>{result?.city?.ilAdi} Günlük Nöbetçi Eczaneleri</h4>

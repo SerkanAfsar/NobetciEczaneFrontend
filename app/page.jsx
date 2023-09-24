@@ -5,6 +5,12 @@ export const metadata = {
   title: "Türkiye Günlük İl - İlçe Nöbetçi Eczane Listesi",
   description: "Türkiye Günlük İl - İlçe Nöbetçi Eczane Listesi",
   charSet: "UTF-8",
+  robots: "index,follow",
+  publisher: "Nöbetçi Eczaneler",
+  author: "Nöbetçi Eczaneler - info@nobetci-eczane.net",
+  distribution: "global",
+  themeColor: "#fff",
+  resourceType: "Web Page",
   openGraph: {
     title: "Türkiye Günlük İl - İlçe Nöbetçi Eczane Listesi",
     description: "Türkiye Günlük İl - İlçe Nöbetçi Eczane Listesi",
@@ -21,21 +27,12 @@ export const metadata = {
   resourceType: "Web Page",
   alternates: {
     canonical: `${process.env.SITE_NAME}`,
+    dnsPrefetch: "//fonts.googleapis.com/",
+    dnsPrefetch: "//www.google-analytics.com/",
+    dnsPrefetch: "//ajax.googleapis.com/",
   },
 };
 
-// export async function generateMetadata() {
-//   const { slug } = params;
-//   const siteURL = "https://example.com";
-
-//   return {
-//     title: `Your title`,
-//     description: `Your meta description`,
-//     alternates: {
-//       canonical: `${siteURL}/yourSlug/${slug}`,
-//     },
-//   };
-// }
 export default async function Home() {
   const result = await GetCityListService();
   if (!result.isSuccess) {

@@ -27,11 +27,15 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
-.inner h1,
+
 .inner h2,
 .inner h3,
 .inner h4,
 .inner h5,
 .inner h6 {
   display: none;
+}
+.inner h1 {
+  font-size: 30px;
+  margin-bottom: 0px;
 }

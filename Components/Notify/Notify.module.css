@@ -1,6 +1,8 @@
 .notify {
   background: var(--red-color);
   color: #fff;
+  font-size: 14px;
+  margin-bottom: 0px;
 }
 .notify p:last-child {
   margin-bottom: 0px;

@@ -11,6 +11,7 @@ export const metadata = {
   distribution: "global",
   themeColor: "#fff",
   resourceType: "Web Page",
+  author: "Nöbetçi Eczaneler - info@nobetci-eczane.net",
   openGraph: {
     title: "Türkiye Günlük İl - İlçe Nöbetçi Eczane Listesi",
     description: "Türkiye Günlük İl - İlçe Nöbetçi Eczane Listesi",

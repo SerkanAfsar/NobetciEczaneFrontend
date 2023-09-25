@@ -4,6 +4,7 @@ import { Roboto } from "next/font/google";
 import Header from "@/Components/Header/Header";
 import Footer from "@/Components/Footer/Footer";
 import NextTopLoader from "nextjs-toploader";
+import Script from "next/script";
 
 const muli = Roboto({
   subsets: ["latin"],
@@ -34,6 +35,18 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
         <Footer />
       </body>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-1PD1VLWWZQ"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analitics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-1PD1VLWWZQ');
+        `}
+      </Script>
     </html>
   );
 }
